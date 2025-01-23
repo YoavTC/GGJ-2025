@@ -1,0 +1,17 @@
+Extra Components: 
+  EventTriggerer: an improvement to the already existing EventTrigger component.
+  TweenBobEffect: a DOTween bob movement effect that can be setup via the inspector.
+  TweenScaleEffect: same as the last one but for scaling.
+
+MonoBehaviour Extensions:
+  CooldownAction: simple script that executes a method every set interval.
+  Singleton: base singleton class that can be implemented by other MonoBehaviours.
+
+CastVisualizer: automatically visualizes 2D & 3D raycast calls & interactions in the editor. 
+NaughtyAttributes: allows serializing private fields to the inspector, and argless methods as buttons.
+PlayerPrefEditor: editor window to easily edit PlayerPrefs w/o having to use the Registry.
+Super Toolbelt: editor window w/ 3 utility buttons (toggle inspector debug mode, toggle UI visibility, switch to last open scene).
+TimeScale Toolbar: allows on the fly adjusting of Time.timeScale.
+HelperFunctions: some extra utility functions (https://github.com/YoavTC/helper-functions/blob/main/README.md).
+DOTween: animation via code engine
+SerializedCollections: allows the serialization of Dictionaries
