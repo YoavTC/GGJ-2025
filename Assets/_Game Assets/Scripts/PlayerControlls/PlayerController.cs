@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
         latestMovementDirection =Vector3.zero;
     }
 
-    [System.Obsolete]
+    
+    
     private void Awake()
     {
 
@@ -48,7 +49,11 @@ public class PlayerController : MonoBehaviour
 
         List<StaminaScript> StaminaBars = new List<StaminaScript>();
         StaminaBars=FindObjectsByType<StaminaScript>(FindObjectsSortMode.None).ToList<StaminaScript>();
-        staminaBar=StaminaBars[PlayerIndex];
+
+        if (PlayerIndex < StaminaBars.Count) 
+        {
+            if (StaminaBars[PlayerIndex] != null) staminaBar = StaminaBars[PlayerIndex]; 
+        }
 
 
     }
