@@ -4,13 +4,14 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [Header("Players")]
-    [SerializeField] public PlayerObject Player1;
-    [SerializeField] public PlayerObject Player2;
+    [SerializeField] private playerScriptable Player1;
+    [SerializeField] private playerScriptable Player2;
 
-    [Header("Game")]
-    [SerializeField] public TMP_Text timerText;
+    [Header("Timer")]
+    [SerializeField] private floatScriptable timerText;
 
-    [SerializeField] public TMP_Text gameOverText;
+    [Header("GameOver")]
+    [SerializeField] private textScriptable gameOverText;
 
     [SerializeField] public float timeRemaining = 300f; // Starting time in seconds
     
@@ -18,10 +19,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Player1.Reset();
-        Player2.Reset();
-        isGameOver = false;
-        gameOverText.gameObject.SetActive(false);
+        resetPlayers();
+        resetGameover();
     }
 
     void Update()
@@ -38,26 +37,68 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                GameOver();
+                GameOver("Draw");
             }
             // if either player's health is 0, game over
-            if (Player1.Health <= 0 || Player2.Health <= 0)
+            if (Player1.Value >= 3)
             {
-                GameOver();
+                GameOver("Player 1 Wins");
+            }
+            else if (Player2.Value >= 3)
+            {
+                GameOver("Player 2 wins");
             }
         }
+    }
+
+    void resetPlayers()
+    {
+        foreach (PlayerController go in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
+        {
+            if (go.gameObject.name.Contains("Player1"))
+                Player1.StartPosition = go.gameObject.transform.position;
+            else
+                Player2.StartPosition = go.gameObject.transform.position;
+        }
+
+        Player1.Value = 0;
+        Player2.Value = 0;
+    }
+
+    void resetGameover()
+    {
+        isGameOver = false;
+        gameOverText.Value = "";
     }
 
     void UpdateCounterDisplay()
     {
         int seconds = Mathf.FloorToInt(timeRemaining);
         if (timerText)
-            timerText.SetText($"{seconds}");
+            timerText.Value = seconds;
     }
     
-    void GameOver()
+    void GameOver(string text)
     {
         isGameOver = true;
-        gameOverText.gameObject.SetActive(isGameOver);
+        gameOverText.Value = text;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerController>())
+        {
+            if (other.gameObject.name.Contains("Player1"))
+            {
+                Player2.Value++;
+                other.transform.position = Player1.StartPosition;
+            }
+            else
+            {
+                Player1.Value++;
+                other.transform.position = Player2.StartPosition;
+            }
+                
+        }
     }
 }

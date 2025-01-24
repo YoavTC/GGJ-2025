@@ -291,6 +291,9 @@ MonoBehaviour:
   playerController: {fileID: 782759239}
   bumpCooldown: 1
   canBump: 0
+  BumpUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &782759238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782759236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f3e92d01c08e9948b9cbee31932cf8c, type: 3}
   m_Name: 
@@ -554,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 782759236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 1.77, z: 0.03}
+  m_LocalPosition: {x: 2.6, y: 5.01, z: 0.03}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1162,7 +1165,7 @@ Transform:
   m_GameObject: {fileID: 1700451659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.77, z: 0}
+  m_LocalPosition: {x: -0.56, y: 5.01, z: 0}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1364,6 +1367,9 @@ MonoBehaviour:
   playerController: {fileID: 1700451664}
   bumpCooldown: 1
   canBump: 0
+  BumpUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PlayerJoinScript : MonoBehaviour
     private List<PlayerInput> playerInputs = new List<PlayerInput>();
     [SerializeField]
     private List<Transform> spawnPoints = new List<Transform>(); // List of spawn points>
+    public GameObject playerPrefabB;
 
     private PlayerInputManager playerInputManager;
 
@@ -28,8 +29,19 @@ public class PlayerJoinScript : MonoBehaviour
     public void AddPlayerInput(PlayerInput playerInput)
     {
         playerInputs.Add(playerInput);
-        Transform playerParent= playerInput.transform.root;
+        
+        //if (playerPrefabB != null) Instantiate(playerPrefabB, playerParent.position, playerParent.rotation);
+        if (playerInputs.Count == 1) 
+        { 
+            Debug.Log("Player 2 Joined");
+            playerInputManager.playerPrefab = playerPrefabB;
+        }
+        Transform playerParent = playerInput.transform.root;
         playerParent.position = spawnPoints[playerInputs.Count - 1].position;
+
+      
+        
+
     }
 
 }

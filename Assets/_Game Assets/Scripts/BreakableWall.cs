@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static WallManager;
 
 public class BreakableWall : MonoBehaviour
 {
@@ -47,7 +48,6 @@ public class BreakableWall : MonoBehaviour
         destroyedInstance.transform.localScale = transform.localScale;
 
         Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
-        Destroy(gameObject);
         if (originalRenderer && originalRenderer.material != null)
         {
             foreach (Renderer childRenderer in childRenderers)
@@ -58,12 +58,10 @@ public class BreakableWall : MonoBehaviour
                 }
             }
         }
-        StartCoroutine(ActivateChunksAfterTimeout(destroyedInstance));
+       gameObject.SetActive(false);
+       Destroy(destroyedInstance, timeout);
+        
     }
 
-    private IEnumerator ActivateChunksAfterTimeout(GameObject destroyedInstance)
-    {
-        yield return new WaitForSeconds(timeout);
-        destroyedInstance.SetActive(false);
-    }
+    // Static method to handle deactivation
 }
