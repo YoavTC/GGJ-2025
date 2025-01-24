@@ -42,6 +42,10 @@ public class BreakableWall : MonoBehaviour
     public void BreakObject()
     {
         GameObject destroyedInstance = Instantiate(Destroyed_Version, transform.position, transform.rotation);
+        Debug.Log($"{transform.position}, {transform.localScale} vs new {destroyedInstance.transform.position}, {destroyedInstance.transform.localScale}");
+        // After instantiation, we set the local scale of the clone to match the source object's scale
+        destroyedInstance.transform.localScale = transform.localScale;
+
         Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
         Destroy(gameObject);
         if (originalRenderer && originalRenderer.material != null)
