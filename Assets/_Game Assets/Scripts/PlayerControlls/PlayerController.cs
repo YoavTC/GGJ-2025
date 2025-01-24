@@ -53,11 +53,16 @@ public class PlayerController : MonoBehaviour
     {
      float rotationSpeed = 10f;
 
+        if (isDashing)
+        {
+            
+            return;
+        }
         movement = playerMovement.ReadValue<Vector2>();
 
         // Calculate the movement direction
         movementDirection=Vector3.zero;
-        movementDirection = new Vector3(movement.x, 0f, movement.y);
+        movementDirection = new Vector3(movement.x, -0.1f, movement.y);
        // movementDirection = transform.TransformDirection(movementDirection);
        
         movementDirection.Normalize();
@@ -69,9 +74,10 @@ public class PlayerController : MonoBehaviour
         if (movementDirection != Vector3.zero) 
         {
             latestMovementDirection = movementDirection;
-            //transform.rotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movementDirection, Vector3.up), rotationSpeed * Time.deltaTime);
+            Vector3 orientation = movementDirection;
+            orientation.y = 0;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(orientation, Vector3.up), rotationSpeed * Time.deltaTime);
 
         }
         // Clamp the movement speed
@@ -110,7 +116,7 @@ public class PlayerController : MonoBehaviour
         if (onDashAnimate!=null) onDashAnimate.Invoke();
         Debug.Log("Dashing " + dir);
        // dir.y = 3f;
-        rb.AddForce(dir * dashSpeed, ForceMode.Impulse);
+        rb.AddForce(dir * dashSpeed, ForceMode.VelocityChange);
         
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
