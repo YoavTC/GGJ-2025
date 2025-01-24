@@ -22,8 +22,6 @@ public class PlayerAnimator : MonoBehaviour
         
         bool isAirborne = !Physics.CheckSphere(groundCheck.position, groundCheckRadius, _groundLayerMask);
         bool isRunning = (Math.Floor(Mathf.Abs(rb.linearVelocity.x) * 10 / 10)> 0f) && !isAirborne; 
-
-        Debug.Log(rb.linearVelocity.x);
         
         animator.SetBool("is_running", isRunning);
         animator.SetBool("is_airborne", isAirborne);
