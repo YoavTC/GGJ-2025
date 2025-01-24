@@ -17,6 +17,10 @@ public class PlayerController : MonoBehaviour
     public InputAction playerMovement;
     private Vector2 movement;
     public UnityEvent onDashAnimate;
+    public PlayerInputManager playerinput;
+    public int PlayerIndex;
+
+    public bool UseForce = false;
 
 
     bool isDashing = false;
@@ -24,8 +28,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        latestMovementDirection=Vector3.zero;
+       // playerinput.JoinPlayer();
+        latestMovementDirection =Vector3.zero;
     }
 
     public void OnMove(InputAction.CallbackContext context) 
@@ -56,8 +60,19 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the movement direction
         movementDirection = new Vector3(movement.x, rb.linearVelocity.y, movement.y);
-        rb.linearVelocity = movementDirection.normalized * speed;
-        
+        movementDirection.Normalize();
+        //rb.linearVelocity = movementDirection * speed;
+        if (UseForce)
+        {
+            rb.AddForce(movementDirection * speed, ForceMode.Impulse);
+            rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, 8f);
+        }
+        else 
+        {
+            rb.AddForce(movementDirection * speed, ForceMode.Force);
+        }
+          
+        // rb.AddForce(movementDirection*speed,ForceMode.Force);
         if (movementDirection != Vector3.zero) 
         {
             latestMovementDirection = movementDirection;
@@ -66,6 +81,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(orientation, Vector3.up), rotationSpeed * Time.deltaTime);
 
         }
+      
     }
 
     private void FixedUpdate()

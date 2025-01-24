@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3264616523718433207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3787767646729132798, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787767646729132798, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 0e363c2c-7d4c-4d71-8661-0acd47b1876d
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787767646729132798, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: 'Player/Join[/DualSenseGamepadHID/buttonNorth,/XInputControllerWindows/buttonNorth]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: mulAAAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: UseForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: dashSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: dashDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288087089976957486, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: diveAddition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814920486037883130, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_Name
+      value: PlayerPrefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814920486037883130, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837282510839937615, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
