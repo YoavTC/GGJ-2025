@@ -1,4 +1,7 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditorInternal;
 using UnityEngine;
@@ -18,9 +21,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     public UnityEvent onDashAnimate;
     public PlayerInputManager playerinput;
-    public int PlayerIndex;
-
+    public int PlayerIndex=0;
+    public ClassicProgressBar DashProgressBar;
     public bool UseForce = false;
+    private StaminaScript staminaBar;
 
 
     bool isDashing = false;
@@ -32,6 +36,22 @@ public class PlayerController : MonoBehaviour
         latestMovementDirection =Vector3.zero;
     }
 
+    [System.Obsolete]
+    private void Awake()
+    {
+
+        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
+        if (playerCount > 1)
+        {
+            PlayerIndex = playerCount - 1;
+        }
+
+        List<StaminaScript> StaminaBars = new List<StaminaScript>();
+        StaminaBars=FindObjectsByType<StaminaScript>(FindObjectsSortMode.None).ToList<StaminaScript>();
+        staminaBar=StaminaBars[PlayerIndex];
+
+
+    }
     public void OnMove(InputAction.CallbackContext context) 
     {
         playerMovement = context.action;
@@ -56,7 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         movement = playerMovement.ReadValue<Vector2>();
         
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         // Calculate the movement direction
         movementDirection = new Vector3(movement.x, rb.linearVelocity.y, movement.y);
@@ -91,7 +111,7 @@ public class PlayerController : MonoBehaviour
     
     public void StartDash()
     {
-        Debug.Log("Dashing " + canDash);
+        //Debug.Log("Dashing " + canDash);
         if (canDash)
         {
             StartCoroutine(Dash(latestMovementDirection));
@@ -105,13 +125,15 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         isDashing = true;
         if (onDashAnimate!=null) onDashAnimate.Invoke();
-        Debug.Log("Dashing " + dir);
+       // Debug.Log("Dashing " + dir);
         // dir.y = 3f;
         rb.AddForce(dir * dashSpeed, ForceMode.VelocityChange);
-        
+        staminaBar.SetProgress(0f,0.1f);
+
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
-        
+
+        staminaBar.SetProgress(1f, AttackCooldown);
         yield return new WaitForSeconds(AttackCooldown);
         canDash = true;
         //GetComponent<Rigidbody2D>().velocity=new Vector2(0,0);
