@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Game")]
     [SerializeField] public TMP_Text timerText;
 
-    [SerializeField] public TMP_Text gamneOverText;
+    [SerializeField] public TMP_Text gameOverText;
 
     [SerializeField] public float timeRemaining = 300f; // Starting time in seconds
     
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         Player1.Reset();
         Player2.Reset();
         isGameOver = false;
-        gamneOverText.gameObject.SetActive(false);
+        gameOverText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -58,6 +58,6 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
-        gamneOverText.gameObject.SetActive(isGameOver);
+        gameOverText.gameObject.SetActive(isGameOver);
     }
 }
