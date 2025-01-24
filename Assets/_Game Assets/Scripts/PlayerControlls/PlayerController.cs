@@ -128,12 +128,12 @@ public class PlayerController : MonoBehaviour
        // Debug.Log("Dashing " + dir);
         // dir.y = 3f;
         rb.AddForce(dir * dashSpeed, ForceMode.VelocityChange);
-        staminaBar.SetProgress(0f,0.1f);
+       if(staminaBar!=null) staminaBar.SetProgress(0f,0.1f);
 
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
 
-        staminaBar.SetProgress(1f, AttackCooldown);
+        if (staminaBar != null) staminaBar.SetProgress(1f, AttackCooldown);
         yield return new WaitForSeconds(AttackCooldown);
         canDash = true;
         //GetComponent<Rigidbody2D>().velocity=new Vector2(0,0);
