@@ -41,17 +41,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       // HandleMovement();
-    }
-
-
-
     private void HandleMovement() 
     {
-     float rotationSpeed = 10f;
+        float rotationSpeed = 10f;
 
         if (isDashing)
         {
@@ -59,44 +51,28 @@ public class PlayerController : MonoBehaviour
             return;
         }
         movement = playerMovement.ReadValue<Vector2>();
+        
+        Debug.Log(movement);
 
         // Calculate the movement direction
-        movementDirection=Vector3.zero;
-        movementDirection = new Vector3(movement.x, -0.1f, movement.y);
-       // movementDirection = transform.TransformDirection(movementDirection);
-       
-        movementDirection.Normalize();
-        Vector3 direction = movementDirection + new Vector3(0f, rb.linearVelocity.y, 0f).normalized;
-        transform.TransformDirection(movementDirection);
-
-        rb.linearVelocity = direction * speed;
-        //rb.linearVelocity = movementDirection * speed;
+        movementDirection = new Vector3(movement.x, rb.linearVelocity.y, movement.y);
+        rb.linearVelocity = movementDirection.normalized * speed;
+        
         if (movementDirection != Vector3.zero) 
         {
             latestMovementDirection = movementDirection;
-
             Vector3 orientation = movementDirection;
             orientation.y = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(orientation, Vector3.up), rotationSpeed * Time.deltaTime);
 
         }
-        // Clamp the movement speed
-       // float movementSpeed = Mathf.Clamp(movement.magnitude, 0f, speed);
-
-        // Move the player using Rigidbody
-        //Debug.Log("speed " + movementSpeed);
-        
-        
-
-
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
     }
-
-
+    
     public void StartDash()
     {
         Debug.Log("Dashing " + canDash);
@@ -108,14 +84,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public IEnumerator Dash(Vector3 dir)
     {
         canDash = false;
         isDashing = true;
         if (onDashAnimate!=null) onDashAnimate.Invoke();
         Debug.Log("Dashing " + dir);
-       // dir.y = 3f;
+        // dir.y = 3f;
         rb.AddForce(dir * dashSpeed, ForceMode.VelocityChange);
         
         yield return new WaitForSeconds(dashDuration);
