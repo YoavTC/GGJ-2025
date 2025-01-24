@@ -30,11 +30,12 @@ public class BreakableWall : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.F))
             BreakObject();
     }
 
     public void BreakObject() {
+        Debug.Log("Wall Destroyed " + gameObject.GetInstanceID());
         Instantiate(Destroyed_Version, transform.position, transform.rotation);
         Destroy(gameObject);
     }
