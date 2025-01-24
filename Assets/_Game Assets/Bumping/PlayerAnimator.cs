@@ -14,16 +14,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Start()
     {
-        if (rb == null) rb = GetComponent<Rigidbody>();
-        if (animator == null) animator = GetComponent<Animator>();
-
         _groundLayerMask = LayerMask.GetMask(groundLayerMask);
     }
-    
-    //  10.021381728937162
-    //  10.02
-    //
-    //
 
     public void FixedUpdate()
     {
