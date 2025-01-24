@@ -336,9 +336,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8837282510839937615}
-  speed: 8
-  dashSpeed: 1000
-  dashDuration: 1
+  speed: 7
+  dashSpeed: 25
+  dashDuration: 0.25
   AttackCooldown: 3
   movementDirection: {x: 0, y: 0, z: 0}
   latestMovementDirection: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ MonoBehaviour:
   playerinput: {fileID: 0}
   PlayerIndex: 0
   DashProgressBar: {fileID: 0}
-  UseForce: 0
+  UseForce: 1
 --- !u!114 &3787767646729132798
 MonoBehaviour:
   m_ObjectHideFlags: 0
