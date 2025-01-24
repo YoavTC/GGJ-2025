@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
         // Calculate the movement direction
         movementDirection=Vector3.zero;
         movementDirection = new Vector3(movement.x, 0f, movement.y);
-        movementDirection = transform.TransformDirection(movementDirection);
+       // movementDirection = transform.TransformDirection(movementDirection);
+       transform.TransformDirection(movementDirection);
         movementDirection.Normalize();
 
         if (movementDirection != Vector3.zero) 
@@ -69,6 +70,9 @@ public class PlayerController : MonoBehaviour
         // Move the player using Rigidbody
         //Debug.Log("speed " + movementSpeed);
         rb.linearVelocity = movementDirection * speed;
+        transform.rotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+
     }
 
     private void FixedUpdate()
