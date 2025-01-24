@@ -61,9 +61,11 @@ public class PlayerController : MonoBehaviour
        // movementDirection = transform.TransformDirection(movementDirection);
        
         movementDirection.Normalize();
+        Vector3 direction = movementDirection + new Vector3(0f, rb.linearVelocity.y, 0f).normalized;
         transform.TransformDirection(movementDirection);
 
-        rb.linearVelocity = movementDirection * speed;
+        rb.linearVelocity = direction * speed;
+        //rb.linearVelocity = movementDirection * speed;
         if (movementDirection != Vector3.zero) 
         {
             latestMovementDirection = movementDirection;

@@ -17,6 +17,7 @@ public class CameraZoom : MonoBehaviour
         vcamera = GetComponent<CinemachineCamera>();
         composer = GetComponent<CinemachinePositionComposer>();
         targetGroup = FindFirstObjectByType<CinemachineTargetGroup>();
+        vcamera.Follow = targetGroup.transform;
         //transform.DORotate(new Vector3(0, 360, 0), 60f, RotateMode.FastBeyond360).SetRelative(true).SetEase(Ease.Linear).SetLoops(-1);
     }
 
