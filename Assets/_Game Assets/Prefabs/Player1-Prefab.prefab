@@ -120,6 +120,10 @@ MonoBehaviour:
   onDashAnimate:
     m_PersistentCalls:
       m_Calls: []
+  playerinput: {fileID: 0}
+  PlayerIndex: 0
+  DashProgressBar: {fileID: 0}
+  UseForce: 0
 --- !u!114 &3937678588752391511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +169,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 75d18970-21f4-4f2a-9d1a-36cac2529c1a
     m_ActionName: 'Player/Dash[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e363c2c-7d4c-4d71-8661-0acd47b1876d
+    m_ActionName: Player/Join
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -290,9 +298,9 @@ GameObject:
   - component: {fileID: 6288087089976957486}
   - component: {fileID: 3787767646729132798}
   - component: {fileID: 8837282510839937615}
-  - component: {fileID: 1446983802806027852}
+  - component: {fileID: 3542484472863268713}
   m_Layer: 0
-  m_Name: PlayerPrefab 1
+  m_Name: Player1-Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,6 +366,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerinput: {fileID: 0}
+  PlayerIndex: 0
+  DashProgressBar: {fileID: 0}
+  UseForce: 0
 --- !u!114 &3787767646729132798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +427,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 75d18970-21f4-4f2a-9d1a-36cac2529c1a
     m_ActionName: 'Player/Dash[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e363c2c-7d4c-4d71-8661-0acd47b1876d
+    m_ActionName: Player/Join
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -447,8 +463,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &1446983802806027852
-BoxCollider:
+--- !u!136 &3542484472863268713
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -465,9 +481,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1119629, y: 2.0247042, z: 1.5284418}
-  m_Center: {x: -0.000029027462, y: 1.9875618, z: -0.2642209}
+  serializedVersion: 2
+  m_Radius: 1.0190872
+  m_Height: 2.2723188
+  m_Direction: 1
+  m_Center: {x: -0.027556539, y: 2.0418248, z: -0.09002769}
 --- !u!1001 &6710767868496243252
 PrefabInstance:
   m_ObjectHideFlags: 0
