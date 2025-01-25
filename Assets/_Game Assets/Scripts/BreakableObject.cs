@@ -18,7 +18,6 @@ public class BreakableObject : MonoBehaviour
         intactObject = gameObject.transform.GetChild(0).gameObject;
         fragmentedObject = gameObject.transform.GetChild(1).gameObject;
         // Pre-cache renderers
-        originalRenderer = GetComponent<Renderer>();
         // disable the destroy version
 
         parentCollider = GetComponent<BoxCollider>();
@@ -35,9 +34,12 @@ public class BreakableObject : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        float impactSpeed = collision.relativeVelocity.magnitude;
-        int damage = Mathf.RoundToInt(impactSpeed * 10);
-        TakeDamage(damage);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            float impactSpeed = collision.relativeVelocity.magnitude;
+            int damage = Mathf.RoundToInt(impactSpeed * 10);
+            TakeDamage(damage);
+        }
     }
 
     void TakeDamage(int damage)
@@ -51,8 +53,8 @@ public class BreakableObject : MonoBehaviour
     private void Update()
     {
         // used for debug mode - break all walls
-        if (Input.GetKeyDown(KeyCode.F))
-            BreakObject();
+        //if (Input.GetKeyDown(KeyCode.F))
+        //    BreakObject();
     }
 
     public void BreakObject()
@@ -64,22 +66,30 @@ public class BreakableObject : MonoBehaviour
         //OLD//destroyedInstance.transform.localScale = transform.localScale;
 
         //OLD//Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
+        parentCollider.enabled = false;
         intactObject.SetActive(false);
         fragmentedObject.SetActive(true);
         Renderer[] childRenderers = fragmentedObject.GetComponentsInChildren<Renderer>();
 
-        if (originalRenderer && originalRenderer.material != null)
+        if (intactChildRenderer && intactChildRenderer.material != null)
         {
             foreach (Renderer childRenderer in childRenderers)
             {
                 if (childRenderer != null)
                 {
-                    childRenderer.material = originalRenderer.material;
+                    childRenderer.material = intactChildRenderer.material;
                 }
             }
         }
-        Destroy(fragmentedObject, timeout);
-        //OLD//Destroy(destroyedInstance, timeout);
+        StartCoroutine(DeactivateChunksAfterTimeout(fragmentedObject));
+    }
+
+    private IEnumerator DeactivateChunksAfterTimeout(GameObject gameObject)
+    {
+        Debug.Log("Coroutine entered");
+        yield return new WaitForSeconds(timeout);
+        Debug.Log("Timeout completed");
+        gameObject.SetActive(false);
     }
 
     // Static method to handle deactivation

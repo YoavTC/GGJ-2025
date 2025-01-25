@@ -40,6 +40,7 @@ public class PlayerJoinScript : MonoBehaviour
             playerInputManager.playerPrefab = playerPrefabB;
         }
         Transform playerParent = playerInput.transform.root;
+        playerParent.gameObject.tag = "Player";
         cinemachineTargetGroup.AddMember(playerParent, 1f, 1f);
         playerParent.position = spawnPoints[playerInputs.Count - 1].position;
 
