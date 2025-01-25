@@ -24,7 +24,8 @@ public class CameraZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateCameraDistance();
+        if (targetGroup.Targets.Count >= 2)
+            updateCameraDistance();
         if (Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(shakeCamera(3,0.5f));
     }
