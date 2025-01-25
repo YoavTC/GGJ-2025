@@ -34,12 +34,12 @@ public class BreakableObject : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            float impactSpeed = collision.relativeVelocity.magnitude;
-            int damage = Mathf.RoundToInt(impactSpeed * 10);
-            TakeDamage(damage);
-        }
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
+
+        float impactSpeed = collision.relativeVelocity.magnitude;
+        int damage = Mathf.RoundToInt(impactSpeed * 10);
+        TakeDamage(damage);
     }
 
     void TakeDamage(int damage)
