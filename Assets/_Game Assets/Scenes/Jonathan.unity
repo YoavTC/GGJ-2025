@@ -119,16 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &22111307 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4161877533967628535, guid: 6da65feb01ae245268e8ac0da5af35f9, type: 3}
-  m_PrefabInstance: {fileID: 708154332}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &54134640 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4161877533967628535, guid: 25532cd3aec43174b9fe11c58faaad77, type: 3}
-  m_PrefabInstance: {fileID: 1746759189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &232699319
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 814481505}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18287434, y: 0, z: 0, w: 0.9831363}
-  m_LocalPosition: {x: 3.379688, y: 11.081484, z: -17.001448}
+  m_LocalPosition: {x: 0, y: 11.501484, z: -17.001448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,13 +731,7 @@ MonoBehaviour:
   PositionMode: 0
   RotationMode: 1
   UpdateMethod: 2
-  Targets:
-  - Object: {fileID: 54134640}
-    Weight: 1
-    Radius: 3
-  - Object: {fileID: 22111307}
-    Weight: 1
-    Radius: 3
+  Targets: []
   m_LegacyTargets: []
 --- !u!4 &1292420106
 Transform:
@@ -758,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 1292420104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.379688, y: -0.42, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -843,11 +827,11 @@ PrefabInstance:
       objectReference: {fileID: 1292420106}
     - target: {fileID: 1517203455493978405, guid: 5fee199a060a3a4429bfc222ddff96cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.379688
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1517203455493978405, guid: 5fee199a060a3a4429bfc222ddff96cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.081484
+      value: 11.501484
       objectReference: {fileID: 0}
     - target: {fileID: 1517203455493978405, guid: 5fee199a060a3a4429bfc222ddff96cd, type: 3}
       propertyPath: m_LocalPosition.z
