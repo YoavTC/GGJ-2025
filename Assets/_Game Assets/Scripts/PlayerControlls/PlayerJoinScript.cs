@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,10 +12,12 @@ public class PlayerJoinScript : MonoBehaviour
     public GameObject playerPrefabB;
 
     private PlayerInputManager playerInputManager;
+    [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
 
     private void Awake()
     {
         playerInputManager = FindFirstObjectByType<PlayerInputManager>();
+
     }
 
     private void OnEnable()
@@ -37,6 +40,7 @@ public class PlayerJoinScript : MonoBehaviour
             playerInputManager.playerPrefab = playerPrefabB;
         }
         Transform playerParent = playerInput.transform.root;
+        cinemachineTargetGroup.AddMember(playerParent, 1f, 1f);
         playerParent.position = spawnPoints[playerInputs.Count - 1].position;
 
       
