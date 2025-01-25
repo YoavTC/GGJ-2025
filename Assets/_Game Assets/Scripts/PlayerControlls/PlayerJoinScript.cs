@@ -38,6 +38,7 @@ public class PlayerJoinScript : MonoBehaviour
     private void PositionPlayerTransforms(PlayerInput playerInput)
     {
         Transform playerParent = playerInput.transform.root;
+        playerParent.gameObject.tag = "Player";
         playerParent.position = spawnPoints[playerInput.playerIndex].position;
         
         if (cinemachineTargetGroup != null) cinemachineTargetGroup.AddMember(playerParent, 1f, 1f);

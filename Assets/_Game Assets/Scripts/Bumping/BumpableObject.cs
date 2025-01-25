@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ namespace _Game_Assets.Scripts.Bumping
         [SerializeField] private Rigidbody rb;
         [SerializeField] private PlayerController playerController;
         [SerializeField] private float bumpCooldown;
-        [SerializeField] private bool canBump;
+        [SerializeField] public bool canBump;
         private float elapsedTime;
 
         public UnityEvent<Vector3> BumpUnityEvent;
@@ -42,11 +43,10 @@ namespace _Game_Assets.Scripts.Bumping
         {
             if (!canBump) return;
             Debug.Log("what");
-            // playerController.enabled = false;
             
             BumpUnityEvent?.Invoke(rb.position);
-            rb.AddForce((rb.position - direction) * force, ForceMode.Impulse);
-            // rb.AddForce(Vector3.up * force);
+            rb.AddForce((rb.position - direction) * force * 30, ForceMode.Impulse);
+
         }
     }
 }
