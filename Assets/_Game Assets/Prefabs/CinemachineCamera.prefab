@@ -123,5 +123,5 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 30
   minCameraDistance: 5
-  maxCameraDistance: 20
+  maxCameraDistance: 30
   rotateSpeed: 1
