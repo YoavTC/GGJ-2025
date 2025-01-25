@@ -616,11 +616,11 @@ PrefabInstance:
     - target: {fileID: 6308779045818321962, guid: 3c11ba4c39de812459f7dc41ee912c74, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
-      objectReference: {fileID: 360692987}
+      objectReference: {fileID: 2064238140}
     - target: {fileID: 6308779045818321962, guid: 3c11ba4c39de812459f7dc41ee912c74, type: 3}
       propertyPath: 'spawnPoints.Array.data[1]'
       value: 
-      objectReference: {fileID: 2064238140}
+      objectReference: {fileID: 360692987}
     - target: {fileID: 9184609320889446534, guid: 3c11ba4c39de812459f7dc41ee912c74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000011920929
