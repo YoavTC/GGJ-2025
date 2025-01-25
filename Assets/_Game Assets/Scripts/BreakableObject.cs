@@ -10,6 +10,7 @@ public class BreakableObject : MonoBehaviour
     public int maxHP = 100;
     public float timeout = 2f;
     private int currentHP;
+    public AudioClip breakSound;
 
     private Renderer originalRenderer;
 
@@ -81,6 +82,7 @@ public class BreakableObject : MonoBehaviour
                 }
             }
         }
+        if (breakSound != null) AudioManager.Instance.PlayAudioClip(breakSound);
         StartCoroutine(DeactivateChunksAfterTimeout(fragmentedObject));
     }
 

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   timeout: 5
+  breakSound: {fileID: 8300000, guid: a818f30278d8b4345a0680ff59cb04aa, type: 3}
 --- !u!65 &5485817437549169735
 BoxCollider:
   m_ObjectHideFlags: 0
