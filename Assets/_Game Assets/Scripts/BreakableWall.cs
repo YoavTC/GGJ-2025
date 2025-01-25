@@ -14,9 +14,10 @@ public class BreakableWall : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
-
         // Pre-cache renderers
         originalRenderer = GetComponent<Renderer>();
+        // disable the destroy version
+        Destroyed_Version.SetActive(false);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -36,18 +37,24 @@ public class BreakableWall : MonoBehaviour
     }
     private void Update()
     {
+        // used for debug mode - break all walls
         if (Input.GetKeyDown(KeyCode.F))
             BreakObject();
     }
 
     public void BreakObject()
     {
-        GameObject destroyedInstance = Instantiate(Destroyed_Version, transform.position, transform.rotation);
-        Debug.Log($"{transform.position}, {transform.localScale} vs new {destroyedInstance.transform.position}, {destroyedInstance.transform.localScale}");
-        // After instantiation, we set the local scale of the clone to match the source object's scale
-        destroyedInstance.transform.localScale = transform.localScale;
+        //NO Need to spawn - we will use the sibling version attached
+        //OLD//GameObject destroyedInstance = Instantiate(Destroyed_Version, transform.position, transform.rotation);
+        //OLD//Debug.Log($"{transform.position}, {transform.localScale} vs new {destroyedInstance.transform.position}, {destroyedInstance.transform.localScale}");
+        //OLD//// After instantiation, we set the local scale of the clone to match the source object's scale
+        //OLD//destroyedInstance.transform.localScale = transform.localScale;
 
-        Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
+        //OLD//Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
+
+        Destroyed_Version.SetActive(true);
+        Renderer[] childRenderers = Destroyed_Version.GetComponentsInChildren<Renderer>();
+
         if (originalRenderer && originalRenderer.material != null)
         {
             foreach (Renderer childRenderer in childRenderers)
@@ -58,9 +65,9 @@ public class BreakableWall : MonoBehaviour
                 }
             }
         }
-       gameObject.SetActive(false);
-       Destroy(destroyedInstance, timeout);
-        
+        gameObject.SetActive(false);
+        //OLD//Destroy(destroyedInstance, timeout);
+        Destroy(Destroyed_Version, timeout);        
     }
 
     // Static method to handle deactivation
