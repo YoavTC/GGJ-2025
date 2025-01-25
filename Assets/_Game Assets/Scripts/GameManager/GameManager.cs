@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [Header("GameOver")]
     [SerializeField] private textScriptable gameOverText;
 
+    private PlayerJoinScript playerJoin;
+
     [SerializeField] public float timeRemaining = 300f; // Starting time in seconds
     
     private bool isGameOver = false;
@@ -53,13 +55,18 @@ public class GameManager : MonoBehaviour
 
     void resetPlayers()
     {
-        foreach (PlayerController go in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
-        {
-            if (go.gameObject.name.Contains("Player1"))
-                Player1.StartPosition = go.gameObject.transform.position;
-            else
-                Player2.StartPosition = go.gameObject.transform.position;
-        }
+        PlayerJoinScript playerJoin = FindFirstObjectByType<PlayerJoinScript>();
+        Player1.StartPosition = playerJoin.spawnPoints[0].position;
+        Player2.StartPosition = playerJoin.spawnPoints[1].position;
+
+
+        //foreach (PlayerController go in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
+        //{
+        //    if (go.gameObject.name.Contains("Player1"))
+        //        Player1.StartPosition = go.gameObject.transform.position;
+        //    else
+        //        Player2.StartPosition = go.gameObject.transform.position;
+        //}
 
         Player1.Value = 0;
         Player2.Value = 0;
