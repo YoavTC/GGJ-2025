@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
-            Debug.Log(directionWithGravity);
+            //Debug.Log(directionWithGravity);
             rb.AddForce(directionWithGravity, ForceMode.Force);
         }
           
