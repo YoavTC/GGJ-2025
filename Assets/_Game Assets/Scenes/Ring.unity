@@ -345,57 +345,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 562503532}
     m_Modifications:
-    - target: {fileID: 1168404157076038277, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_Name
-      value: Sphere Outer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081995520895961914, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_Name
-      value: Plane Floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 2726449055720023156, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_Name
-      value: Sphere Center
-      objectReference: {fileID: 0}
-    - target: {fileID: 3723837244882765849, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d4c562cc04ed146c4a0a60ab6bb799cd, type: 2}
-    - target: {fileID: 3762002869051003660, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_TagString
-      value: Respawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179874399342297639, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_Name
-      value: Cylinder Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 6306145214091740857, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6514830921886044299, guid: 85908ece307f44af880c9155b77d578f, type: 3}
       propertyPath: m_Name
       value: The Ring
-      objectReference: {fileID: 0}
-    - target: {fileID: 6597983409771344280, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_TagString
-      value: Respawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 7286571950743639389, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 131e37dd8fa6547969dddbad3fc42e72, type: 2}
-    - target: {fileID: 7520067350553204402, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7520067350553204402, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7520067350553204402, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7520067350553204402, guid: 85908ece307f44af880c9155b77d578f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -436,14 +388,6 @@ PrefabInstance:
     - target: {fileID: 7520067350553204402, guid: 85908ece307f44af880c9155b77d578f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7538763068169054383, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9175363757891539820, guid: 85908ece307f44af880c9155b77d578f, type: 3}
-      propertyPath: m_Name
-      value: Sphere Inner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
