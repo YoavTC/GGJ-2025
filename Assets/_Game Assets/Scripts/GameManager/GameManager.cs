@@ -88,15 +88,20 @@ public class GameManager : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>())
         {
-            if (other.gameObject.name.Contains("Player1"))
+            
+            other.GetComponent<PlayerController>().ResetMomentum();
+
+            if (other.GetComponent<PlayerController>().PlayerIndex==0)
             {
                 Player2.Value++;
                 other.transform.position = Player1.StartPosition;
+                
             }
             else
             {
                 Player1.Value++;
                 other.transform.position = Player2.StartPosition;
+                
             }
                 
         }
