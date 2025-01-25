@@ -150,4 +150,10 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         //GetComponent<Rigidbody2D>().velocity=new Vector2(0,0);
     }
+
+
+    public void ResetMomentum() 
+    {
+        rb.linearVelocity = Vector3.zero;
+    }
 }
