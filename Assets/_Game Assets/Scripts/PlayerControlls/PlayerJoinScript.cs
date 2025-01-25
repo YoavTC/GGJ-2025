@@ -29,12 +29,15 @@ public class PlayerJoinScript : MonoBehaviour
         Gamepad[] gamepads = Gamepad.all.ToArray();
         InputDevice[] inputDevices = new InputDevice[2];
 
+        Debug.Log($"gamepads count: {gamepads.Length}");
         if (gamepads.Length == 0)
         {
             NotEnoughControllersUnityEvent?.Invoke();
+            Time.timeScale = 0f;
             return;
         }
         
+        Time.timeScale = 1f;
         inputDevices[0] = gamepads[0];
 
 
