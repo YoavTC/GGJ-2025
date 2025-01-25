@@ -21,7 +21,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void GoToGame()
     {
-
-       
+        SceneManager.LoadScene("GameScene");    
     }
 }
