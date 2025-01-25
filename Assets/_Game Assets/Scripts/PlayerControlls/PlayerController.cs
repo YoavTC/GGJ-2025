@@ -84,17 +84,18 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(movement);
 
         // Calculate the movement direction
-        movementDirection = new Vector3(movement.x, rb.linearVelocity.y, movement.y);
-        movementDirection.Normalize();
+        movementDirection = new Vector3(movement.x, 0, movement.y);
+        movementDirection = movementDirection.normalized * speed;
+        Vector3 directionWithGravity = new Vector3 (movementDirection.x, rb.linearVelocity.y, movementDirection.z);
         //rb.linearVelocity = movementDirection * speed;
         if (UseForce)
         {
-            rb.AddForce(movementDirection * speed, ForceMode.Impulse);
+            rb.AddForce(directionWithGravity, ForceMode.Impulse);
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, 8f);
         }
         else 
         {
-            rb.AddForce(movementDirection * speed, ForceMode.Force);
+            rb.AddForce(directionWithGravity, ForceMode.Force);
         }
           
         // rb.AddForce(movementDirection*speed,ForceMode.Force);
