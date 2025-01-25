@@ -5,6 +5,8 @@ public class BreakableObject : MonoBehaviour
 {
     private GameObject intactObject;
     private GameObject fragmentedObject;
+    private BoxCollider parentCollider;
+    private Renderer intactChildRenderer;
     public int maxHP = 100;
     public float timeout = 2f;
     private int currentHP;
@@ -18,6 +20,13 @@ public class BreakableObject : MonoBehaviour
         // Pre-cache renderers
         originalRenderer = GetComponent<Renderer>();
         // disable the destroy version
+
+        parentCollider = GetComponent<BoxCollider>();
+        intactChildRenderer = intactObject.GetComponent<Renderer>();
+
+        // Automatically size collider to child's renderer bounds
+        parentCollider.center = intactChildRenderer.bounds.center - transform.position;
+        parentCollider.size = intactChildRenderer.bounds.size;
 
 
         intactObject.SetActive(true);
