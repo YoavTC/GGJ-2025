@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 3787767646729132798}
   - component: {fileID: 8837282510839937615}
   - component: {fileID: 8287742988423128383}
+  - component: {fileID: -9057892533609687532}
   m_Layer: 0
   m_Name: Player2-Prefab 1
   m_TagString: Untagged
@@ -337,8 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8837282510839937615}
-  speed: 7
-  dashSpeed: 8
+  speed: 300
+  dashSpeed: 20
   dashDuration: 0.25
   AttackCooldown: 3
   movementDirection: {x: 0, y: 0, z: 0}
@@ -370,7 +371,7 @@ MonoBehaviour:
   playerinput: {fileID: 0}
   PlayerIndex: 1
   DashProgressBar: {fileID: 0}
-  UseForce: 1
+  UseForce: 0
   isDashing: 0
 --- !u!114 &3787767646729132798
 MonoBehaviour:
@@ -488,6 +489,25 @@ CapsuleCollider:
   m_Height: 2.2723188
   m_Direction: 1
   m_Center: {x: -0.027556539, y: 2.0418248, z: -0.09002769}
+--- !u!114 &-9057892533609687532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814920486037883130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8d3a97ae3348239e87f3aa8dda6409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8837282510839937615}
+  playerController: {fileID: 6288087089976957486}
+  bumpCooldown: 1
+  canBump: 1
+  BumpUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4849690927312812950
 PrefabInstance:
   m_ObjectHideFlags: 0

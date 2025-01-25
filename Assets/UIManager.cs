@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] textScriptable gameOver;
     [SerializeField] TMPro.TMP_Text gameOverText;
 
+    [SerializeField] GameObject restartButton, exitButton;
+
     [Header("WinColors")]
     [SerializeField] Color player1Color, player2Color, drawColor;
 
@@ -37,6 +39,13 @@ public class UIManager : MonoBehaviour
             gameOverText.color = player1Color;
         if (gameOverText.text.Contains("Player 2"))
             gameOverText.color = player2Color;
+
+        if (gameOverText.text != "")
+        {
+            restartButton.SetActive(true);
+            exitButton.SetActive(true);
+        }
+            
 
         gameOverText.text = gameOver.Value.ToString();
     }

@@ -9,7 +9,7 @@ public class PlayerJoinScript : MonoBehaviour
 {
     private PlayerInputManager playerInputManager;
     [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
-    [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); // List of spawn points>
+    [SerializeField] public List<Transform> spawnPoints = new List<Transform>(); // List of spawn points>
     [SerializeField] private GameObject playerPrefabB;
 
     private void OnEnable() => playerInputManager.onPlayerJoined += PositionPlayerTransforms;
