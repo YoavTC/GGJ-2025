@@ -93,4 +93,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  playerPrefabB: {fileID: 919132149155446097, guid: 75f933788443cc84f8d83389c354b7aa, type: 3}
+  playerPrefabB: {fileID: 8814920486037883130, guid: 6da65feb01ae245268e8ac0da5af35f9, type: 3}
+  NotEnoughControllersUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
