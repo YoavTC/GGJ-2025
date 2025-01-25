@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _Game_Assets.Scripts.Bumping;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditorInternal;
 using UnityEngine;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private StaminaScript staminaBar;
 
 
-    bool isDashing = false;
+    public bool isDashing = false;
     bool canDash = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
+            Debug.Log(directionWithGravity);
             rb.AddForce(directionWithGravity, ForceMode.Force);
         }
           
@@ -128,8 +130,11 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Dash(Vector3 dir)
     {
+        dir /= speed;
         canDash = false;
         isDashing = true;
+        BumpableObject bumpable = GetComponent<BumpableObject>();
+        bumpable.canBump = false;
         if (onDashAnimate!=null) onDashAnimate.Invoke();
        // Debug.Log("Dashing " + dir);
         // dir.y = 3f;
@@ -138,6 +143,7 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
+        bumpable.canBump = true;
 
         if (staminaBar != null) staminaBar.SetProgress(1f, AttackCooldown);
         yield return new WaitForSeconds(AttackCooldown);
