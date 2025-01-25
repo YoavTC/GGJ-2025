@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public bool UseForce = false;
     private StaminaScript staminaBar;
 
+    public AudioClip bounceSound;
+    public AudioClip JumpSound;
+
 
     public bool isDashing = false;
     bool canDash = true;
@@ -155,5 +158,15 @@ public class PlayerController : MonoBehaviour
     public void ResetMomentum() 
     {
         rb.linearVelocity = Vector3.zero;
+    }
+
+    public void playBounce() 
+    {
+       if (bounceSound != null) AudioManager.Instance.PlayAudioClip(bounceSound);
+    }
+
+    public void playJump()
+    {
+        if (JumpSound != null) AudioManager.Instance.PlayAudioClip(JumpSound);
     }
 }
