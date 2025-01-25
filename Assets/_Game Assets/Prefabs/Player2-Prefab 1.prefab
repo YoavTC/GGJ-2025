@@ -124,6 +124,7 @@ MonoBehaviour:
   PlayerIndex: 0
   DashProgressBar: {fileID: 0}
   UseForce: 0
+  isDashing: 0
 --- !u!114 &3937678588752391511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,9 +368,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerinput: {fileID: 0}
-  PlayerIndex: 0
+  PlayerIndex: 1
   DashProgressBar: {fileID: 0}
   UseForce: 1
+  isDashing: 0
 --- !u!114 &3787767646729132798
 MonoBehaviour:
   m_ObjectHideFlags: 0
