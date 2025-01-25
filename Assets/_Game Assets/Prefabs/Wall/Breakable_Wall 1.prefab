@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable_Wall 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea5ffc5ceddf259458f92c01627e4d17, type: 3}
+      propertyPath: m_TagString
+      value: Intact
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -110,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb05f078974579d4db276efbc9c4f25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destroyed_Version: {fileID: 5158567511755100460, guid: 3166d472748016b41949317eeb3edd44, type: 3}
+  _fragmentedObject: {fileID: 7969098172753250671, guid: 1ab3b1fe8af2e3b4fad3c51a7c997712, type: 3}
   maxHP: 100
   timeout: 2
 --- !u!65 &-4555864546383616122

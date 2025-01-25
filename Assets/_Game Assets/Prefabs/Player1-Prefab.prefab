@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8837282510839937615}
   speed: 7
-  dashSpeed: 25
+  dashSpeed: 8
   dashDuration: 0.25
   AttackCooldown: 3
   movementDirection: {x: 0, y: 0, z: 0}

@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using static WallManager;
 
-public class BreakableWall : MonoBehaviour
+public class BreakableObject : MonoBehaviour
 {
-    public GameObject Destroyed_Version;
+    private GameObject intactObject;
+    private GameObject fragmentedObject;
     public int maxHP = 100;
     public float timeout = 2f;
     private int currentHP;
@@ -13,11 +13,15 @@ public class BreakableWall : MonoBehaviour
 
     void Start()
     {
-        currentHP = maxHP;
+        intactObject = gameObject.transform.GetChild(0).gameObject;
+        fragmentedObject = gameObject.transform.GetChild(1).gameObject;
         // Pre-cache renderers
         originalRenderer = GetComponent<Renderer>();
         // disable the destroy version
-        Destroyed_Version.SetActive(false);
+
+
+        intactObject.SetActive(true);
+        fragmentedObject.SetActive(false);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -51,9 +55,9 @@ public class BreakableWall : MonoBehaviour
         //OLD//destroyedInstance.transform.localScale = transform.localScale;
 
         //OLD//Renderer[] childRenderers = destroyedInstance.GetComponentsInChildren<Renderer>();
-
-        Destroyed_Version.SetActive(true);
-        Renderer[] childRenderers = Destroyed_Version.GetComponentsInChildren<Renderer>();
+        intactObject.SetActive(false);
+        fragmentedObject.SetActive(true);
+        Renderer[] childRenderers = fragmentedObject.GetComponentsInChildren<Renderer>();
 
         if (originalRenderer && originalRenderer.material != null)
         {
@@ -65,9 +69,8 @@ public class BreakableWall : MonoBehaviour
                 }
             }
         }
-        gameObject.SetActive(false);
+        Destroy(fragmentedObject, timeout);
         //OLD//Destroy(destroyedInstance, timeout);
-        Destroy(Destroyed_Version, timeout);        
     }
 
     // Static method to handle deactivation

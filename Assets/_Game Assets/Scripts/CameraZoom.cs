@@ -8,16 +8,16 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] float minDistance = 1, maxDistance = 30;
     [SerializeField] float minCameraDistance = 5, maxCameraDistance = 20;
     [SerializeField] float rotateSpeed = 1;
-    CinemachineCamera vcamera;
+    CinemachineCamera vCamera;
     CinemachinePositionComposer composer;
     CinemachineTargetGroup targetGroup;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        vcamera = GetComponent<CinemachineCamera>();
+        vCamera = GetComponent<CinemachineCamera>();
         composer = GetComponent<CinemachinePositionComposer>();
         targetGroup = FindFirstObjectByType<CinemachineTargetGroup>();
-        vcamera.Follow = targetGroup.transform;
+        vCamera.Follow = targetGroup.transform;
         //transform.DORotate(new Vector3(0, 360, 0), 60f, RotateMode.FastBeyond360).SetRelative(true).SetEase(Ease.Linear).SetLoops(-1);
     }
 
@@ -58,7 +58,7 @@ public class CameraZoom : MonoBehaviour
 
     public IEnumerator shakeCamera(float shakeStrange = 1, float time = 1)
     {
-        CinemachineBasicMultiChannelPerlin channel = vcamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        CinemachineBasicMultiChannelPerlin channel = vCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
         channel.FrequencyGain = shakeStrange;
         Time.timeScale = 0f;
         for (int i = 0; i < time * 10; i++)
