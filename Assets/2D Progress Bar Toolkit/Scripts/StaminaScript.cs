@@ -63,12 +63,12 @@ public class StaminaScript : MonoBehaviour
     {
         float initialProgress = ProgressBar.fillAmount;
         float elapsedTime = 0f;
-        Debug.Log("Animate Bar "+targetProgress);
+        // Debug.Log("Animate Bar "+targetProgress);
         while (elapsedTime < fillTime)
         {
             elapsedTime += Time.deltaTime;
             ProgressBar.fillAmount = Mathf.Lerp(initialProgress, targetProgress, elapsedTime / fillTime);
-            Debug.Log("Animate Bar2 " + ProgressBar.fillAmount);
+            // Debug.Log("Animate Bar2 " + ProgressBar.fillAmount);
             onProgress.Invoke();
             yield return null;
         }

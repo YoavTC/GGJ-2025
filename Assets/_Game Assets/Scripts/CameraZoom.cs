@@ -26,8 +26,8 @@ public class CameraZoom : MonoBehaviour
     {
         if (targetGroup.Targets.Count >= 2)
             updateCameraDistance();
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(shakeCamera(3,0.5f));
+        // if (Input.GetKeyDown(KeyCode.Space))
+            // StartCoroutine(shakeCamera(3,0.5f));
     }
 
     void updateCameraDistance()
